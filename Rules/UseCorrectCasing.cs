@@ -61,7 +61,7 @@ namespace Microsoft.Windows.PowerShell.ScriptAnalyzer.BuiltinRules
                         string.Format(CultureInfo.CurrentCulture, Strings.UseCorrectCasingError, commandName, shortName),
                         GetCommandExtent(commandAst),
                         GetName(),
-                        DiagnosticSeverity.Warning,
+                        DiagnosticSeverity.Information,
                         fileName,
                         commandName,
                         suggestedCorrections: GetCorrectionExtent(commandAst, correctlyCasedCommandName));
@@ -94,7 +94,7 @@ namespace Microsoft.Windows.PowerShell.ScriptAnalyzer.BuiltinRules
                                 string.Format(CultureInfo.CurrentCulture, Strings.UseCorrectCasingError, commandName, parameterName),
                                 GetCommandExtent(commandAst),
                                 GetName(),
-                                DiagnosticSeverity.Warning,
+                                DiagnosticSeverity.Information,
                                 fileName,
                                 commandName,
                                 suggestedCorrections: GetCorrectionExtent(commandParameterAst, correctlyCasedParameterName));

@@ -44,6 +44,12 @@ Describe "UseCorrectCasing" {
         Invoke-Formatter 'invoke-dummyFunction' | Should -Be 'Invoke-DummyFunction'
     }
 
+    It "Violation severity is information" {
+        $scriptDefinition = 'get-content'
+        $settings = @{ 'Rules' = @{ 'PSUseCorrectCasing' = @{ 'Enable' = $true } } }
+        Invoke-ScriptAnalyzer -ScriptDefinition $scriptDefinition -Settings $settings | Select-Object -ExpandProperty Severity | Should -Be 'Information'
+    }
+
     It "Preserves script path" {
         $path = Join-Path $TestDrive "$([guid]::NewGuid()).ps1"
         New-Item -ItemType File -Path $path
